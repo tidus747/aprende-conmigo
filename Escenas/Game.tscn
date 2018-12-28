@@ -14,4 +14,6 @@ script = ExtResource( 1 )
 
 [connection signal="iniciar_juego_tablas" from="Menu" to="." method="juego_tablas"]
 
+[connection signal="volver_atras" from="juego_tablas" to="." method="_ready"]
+
 

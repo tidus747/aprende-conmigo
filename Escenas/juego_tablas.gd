@@ -3,6 +3,7 @@ extends Node
 # Signals
 signal respuesta_correcta
 signal respuesta_incorrecta
+signal volver_atras
 
 # Variables para el juego
 var correctas
@@ -48,6 +49,11 @@ func mostrar_fondo():
 	
 func ocultar_fondo():
 	$Fondo.hide()
+	
+func _salir():
+	ocultar_fondo()
+	ocultar_menu()
+	$Popup.hide()
 	
 func gen_numbers(sel):
 	var numbers = []
@@ -232,4 +238,8 @@ func _on_button_continuar_button_down():
 	$Popup.hide()
 	num_turnos += 5 
 	iniciar_juego(seleccion)
+
+func _on_button_Atras_button_down():
+	_salir()
+	emit_signal("volver_atras")
 	

@@ -475,7 +475,7 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Atrás"
+text = "Salir"
 flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts" ]
@@ -518,6 +518,8 @@ _sections_unfolded = [ "custom_fonts" ]
 [connection signal="timeout" from="TimerSec" to="." method="_on_TimerSec_timeout"]
 
 [connection signal="timeout" from="Stopsound" to="." method="_on_Stopsound_timeout"]
+
+[connection signal="button_down" from="Popup/button_Atras" to="." method="_on_button_Atras_button_down"]
 
 [connection signal="button_down" from="Popup/button_continuar" to="." method="_on_button_continuar_button_down"]
 
