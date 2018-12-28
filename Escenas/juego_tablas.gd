@@ -16,12 +16,14 @@ var rand
 var num1
 var num2
 var resultado
+var num_turnos = 10
 
 # BLOQUE DE FUNCIONES EXTRA
 func mostrar_menu():
 	$Label_Tiempo.show()
 	$Label_incorrectas.show()
 	$Label_correctas.show()
+	$Label_restantes.show()
 	
 	$Operacion.show()
 	$opc_1.show()
@@ -33,6 +35,7 @@ func ocultar_menu():
 	$Label_Tiempo.hide()
 	$Label_incorrectas.hide()
 	$Label_correctas.hide()
+	$Label_restantes.hide()
 	
 	$Operacion.hide()
 	$opc_1.hide()
@@ -133,6 +136,7 @@ func iniciar_juego(sel):
 	$Label_Tiempo.set_text("Tiempo: "+str(tiempo))
 	$Label_incorrectas.set_text("Incorrectas: "+str(incorrectas))
 	$Label_correctas.set_text("Correctas: "+str(correctas))
+	$Label_restantes.set_text("Preguntas restantes: "+str(num_turnos))
 	
 	numbers = gen_numbers(seleccion)
 	
@@ -140,6 +144,8 @@ func iniciar_juego(sel):
 	
 func fin_partida():
 	ocultar_menu()
+	$finish_sound.play()
+	$Popup/Label_respuestas_correctas.set_text("Has contestado correctamente al "+ str(float(correctas)/turnos * 100) +"% de las preguntas")
 	$Popup.show()
 	
 func _on_TimerSec_timeout():
@@ -156,7 +162,8 @@ func _on_opc_1_pressed():
 		marcador_incorrecta()
 	
 	turnos += 1
-	if (turnos < 10):
+	$Label_restantes.set_text("Preguntas restantes: "+str(num_turnos-turnos))
+	if (turnos < num_turnos):
 		pinta_numeros()
 	else:
 		print("Fin del juego")
@@ -172,7 +179,8 @@ func _on_opc_2_pressed():
 		marcador_incorrecta()
 	
 	turnos += 1
-	if (turnos < 10):
+	$Label_restantes.set_text("Preguntas restantes: "+str(num_turnos-turnos))
+	if (turnos < num_turnos):
 		pinta_numeros()
 	else:
 		print("Fin del juego")
@@ -188,7 +196,8 @@ func _on_opc_3_pressed():
 		marcador_incorrecta()
 		
 	turnos += 1
-	if (turnos < 10):
+	$Label_restantes.set_text("Preguntas restantes: "+str(num_turnos-turnos))
+	if (turnos < num_turnos):
 		pinta_numeros()
 	else:
 		print("Fin del juego")
@@ -203,14 +212,22 @@ func _on_opc_4_pressed():
 		marcador_incorrecta()
 	
 	turnos += 1
-	if (turnos < 10):
+	$Label_restantes.set_text("Preguntas restantes: "+str(num_turnos-turnos))
+	if (turnos < num_turnos):
 		pinta_numeros()
 	else:
 		print("Fin del juego")
 		fin_partida()
 		
 
-
 func _on_Stopsound_timeout():
 	$Correct_answer.stop()
 	$Wrong_answer.stop()
+	$finish_sound.stop()
+
+
+func _on_button_continuar_button_down():
+	$Popup.hide()
+	num_turnos += 5 
+	iniciar_juego(seleccion)
+	

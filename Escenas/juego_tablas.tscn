@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Escenas/juego_tablas.gd" type="Script" id=1]
 [ext_resource path="res://images/background/bg_2.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Comfortaa-Light.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://fonts/Mathematical Bold.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://sound fx/154887__unfa__beep-good.ogg" type="AudioStream" id=5]
-[ext_resource path="res://sound fx/131657__bertrof__game-sound-wrong.wav" type="AudioStream" id=6]
-[ext_resource path="res://fonts/Enagol-Math-Medium.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://sound fx/finished.wav" type="AudioStream" id=6]
+[ext_resource path="res://sound fx/131657__bertrof__game-sound-wrong.wav" type="AudioStream" id=7]
+[ext_resource path="res://fonts/Enagol-Math-Medium.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://fonts/Mathematical.ttf" type="DynamicFontData" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -37,7 +39,23 @@ _sections_unfolded = [ "Font", "Settings" ]
 size = 60
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 7 )
+font_data = ExtResource( 8 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 47
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 9 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 40
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 8 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="juego_tablas" type="Node" index="0"]
@@ -130,16 +148,39 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Rect", "custom_fonts" ]
 
-[node name="Operacion" type="Label" parent="." index="4"]
+[node name="Label_restantes" type="Label" parent="." index="4"]
+
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -200.0
+margin_top = -277.0
+margin_right = 117.0
+margin_bottom = -231.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Preguntas restantes:"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Operacion" type="Label" parent="." index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 393.0
-margin_top = 175.0
-margin_right = 853.0
-margin_bottom = 491.0
+margin_left = 385.0
+margin_top = 110.0
+margin_right = 845.0
+margin_bottom = 426.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -153,7 +194,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
-[node name="opc_1" type="Button" parent="." index="5"]
+[node name="opc_1" type="Button" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -180,7 +221,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="opc_2" type="Button" parent="." index="6"]
+[node name="opc_2" type="Button" parent="." index="7"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -207,7 +248,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="opc_3" type="Button" parent="." index="7"]
+[node name="opc_3" type="Button" parent="." index="8"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -234,7 +275,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="opc_4" type="Button" parent="." index="8"]
+[node name="opc_4" type="Button" parent="." index="9"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -261,14 +302,14 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="TimerSec" type="Timer" parent="." index="9"]
+[node name="TimerSec" type="Timer" parent="." index="10"]
 
 process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = false
 
-[node name="Correct_answer" type="AudioStreamPlayer" parent="." index="10"]
+[node name="Correct_answer" type="AudioStreamPlayer" parent="." index="11"]
 
 stream = ExtResource( 5 )
 volume_db = 0.0
@@ -277,7 +318,7 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Wrong_answer" type="AudioStreamPlayer" parent="." index="11"]
+[node name="finish_sound" type="AudioStreamPlayer" parent="." index="12"]
 
 stream = ExtResource( 6 )
 volume_db = 0.0
@@ -286,14 +327,23 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 
-[node name="Stopsound" type="Timer" parent="." index="12"]
+[node name="Wrong_answer" type="AudioStreamPlayer" parent="." index="13"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="Stopsound" type="Timer" parent="." index="14"]
 
 process_mode = 1
 wait_time = 0.5
 one_shot = true
 autostart = false
 
-[node name="Popup" type="PopupPanel" parent="." index="13"]
+[node name="Popup" type="PopupPanel" parent="." index="15"]
 
 visible = false
 anchor_left = 0.5
@@ -335,6 +385,83 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
 
+[node name="Label_respuestas_correctas" type="Label" parent="Popup" index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -370.5
+margin_top = 237.0
+margin_right = 451.5
+margin_bottom = 290.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+text = "Has contestado correctamente al 100% de la preguntas"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="button_Atras" type="Button" parent="Popup" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 505.0
+margin_top = 457.0
+margin_right = 767.0
+margin_bottom = 535.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Atrás"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
+[node name="button_continuar" type="Button" parent="Popup" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 222.0
+margin_top = 457.0
+margin_right = 484.0
+margin_bottom = 535.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 6 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Continuar"
+flat = false
+align = 1
+_sections_unfolded = [ "custom_fonts" ]
+
 [connection signal="pressed" from="opc_1" to="." method="_on_opc_1_pressed"]
 
 [connection signal="pressed" from="opc_2" to="." method="_on_opc_2_pressed"]
@@ -346,5 +473,7 @@ _sections_unfolded = [ "custom_fonts" ]
 [connection signal="timeout" from="TimerSec" to="." method="_on_TimerSec_timeout"]
 
 [connection signal="timeout" from="Stopsound" to="." method="_on_Stopsound_timeout"]
+
+[connection signal="button_down" from="Popup/button_continuar" to="." method="_on_button_continuar_button_down"]
 
 
