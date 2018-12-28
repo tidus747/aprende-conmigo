@@ -8,7 +8,7 @@ signal respuesta_incorrecta
 var correctas
 var incorrectas
 var tiempo
-var opc_correcta
+var opc_correcta 
 var seleccion
 var numbers 
 var turnos
@@ -16,7 +16,6 @@ var rand
 var num1
 var num2
 var resultado
-var generado
 
 # BLOQUE DE FUNCIONES EXTRA
 func mostrar_menu():
@@ -50,14 +49,12 @@ func ocultar_fondo():
 func gen_numbers(sel):
 	var numbers = []
 	
-	if (sel[0] == true):
+	if (sel[0] == true or sel == []):
 		numbers = range(1,10)
-	for i in range(1,len(sel)):
-		if(sel[i] == true):
-			numbers.append(i)
-			
-	if (numbers == []):
-		numbers = range(1,10)
+	else:
+		for i in range(1,len(sel)):
+			if(sel[i] == true):
+				numbers.append(i)
 	
 	return numbers
 	
@@ -78,16 +75,18 @@ func marcador_incorrecta():
 func _ready():
 	ocultar_menu()
 	ocultar_fondo()
+	opc_correcta = 0
+	
 	
 func pinta_numeros():
 	rand = randi()%len(numbers)
 	num1 = numbers[rand]
-	num2 = randi()%11
+	num2 = randi()%10+1
 	resultado = num1*num2
 	
 	$Operacion.set_text(str(num1)+" x " + str(num2))
 	
-	rand = randi()%5+1
+	rand = randi()%4+1
 	
 	# TODO hay que hacer una función que genere los números del resultado de forma automática y que evite que se repitan
 	
@@ -115,7 +114,7 @@ func pinta_numeros():
 		$opc_3.set_text(str(resultado-1+randi()%11+1))
 		$opc_4.set_text(str(resultado))
 		opc_correcta = 4
-	
+			
 
 func iniciar_juego(sel):
 	
@@ -130,7 +129,6 @@ func iniciar_juego(sel):
 	incorrectas = 0
 	tiempo = 0
 	turnos = 0
-	generado =0
 	
 	$Label_Tiempo.set_text("Tiempo: "+str(tiempo))
 	$Label_incorrectas.set_text("Incorrectas: "+str(incorrectas))
