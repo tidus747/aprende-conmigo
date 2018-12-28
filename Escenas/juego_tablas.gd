@@ -145,7 +145,9 @@ func iniciar_juego(sel):
 func fin_partida():
 	ocultar_menu()
 	$finish_sound.play()
-	$Popup/Label_respuestas_correctas.set_text("Has contestado correctamente al "+ str(float(correctas)/turnos * 100) +"% de las preguntas")
+	$Popup/Label_respuestas_correctas.set_text("Has contestado correctamente al "+ str(int(float(correctas)/turnos * 100)) +"% de las preguntas")
+	$Popup/Label_correctas.set_text("Correctas: "+str(correctas))
+	$Popup/Label_incorrectas.set_text("Incorrectas: "+str(incorrectas))
 	$Popup.show()
 	
 func _on_TimerSec_timeout():
