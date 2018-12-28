@@ -1,0 +1,283 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Escenas/Menu_Inicio_Modes.gd" type="Script" id=1]
+[ext_resource path="res://images/background/bg_2.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Enagol-Math-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://fonts/Comfortaa-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://sound fx/over_button.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 35
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 3 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+content_margin_left = -1.0
+content_margin_right = -1.0
+content_margin_top = -1.0
+content_margin_bottom = -1.0
+bg_color = Color( 1, 1, 1, 1 )
+draw_center = true
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.410156, 0.410156, 0.410156, 1 )
+border_blend = false
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+corner_detail = 8
+expand_margin_left = 0.0
+expand_margin_right = 0.0
+expand_margin_top = 0.0
+expand_margin_bottom = 0.0
+shadow_color = Color( 0, 0, 0, 0.6 )
+shadow_size = 0
+anti_aliasing = true
+anti_aliasing_size = 1
+_sections_unfolded = [ "Border", "Border Width" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 25
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[node name="Menu_Inicio_Modes" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Fondo" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="atras" type="Button" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 958.0
+margin_top = 631.0
+margin_right = 1265.0
+margin_bottom = 702.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Atrás"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="button_operaciones" type="Button" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 115.0
+margin_top = 260.0
+margin_right = 596.0
+margin_bottom = 331.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Lluvia de operaciones"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="button_tablas" type="Button" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+margin_left = 119.0
+margin_top = -237.0
+margin_right = 600.0
+margin_bottom = -157.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Tablas de multiplicar"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="Popup_operaciones" type="PopupPanel" parent="." index="4"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 109.0
+margin_right = 1196.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+popup_exclusive = false
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="texto_operaciones" type="RichTextLabel" parent="Popup_operaciones" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 16.0
+margin_right = 452.0
+margin_bottom = 389.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "En esta prueba debes realizar una serie de operaciones (sumas, restas, multiplicaciones y divisiones) lo más rápido posible. Aunque la prueba sea cronometrada no posee un tiempo límite. ¡Intenta dar lo máximo para superarte a ti mism@!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 3
+text = "En esta prueba debes realizar una serie de operaciones (sumas, restas, multiplicaciones y divisiones) lo más rápido posible. Aunque la prueba sea cronometrada no posee un tiempo límite. ¡Intenta dar lo máximo para superarte a ti mism@!"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+
+[node name="Popup_tablas" type="PopupPanel" parent="." index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 736.0
+margin_top = 109.0
+margin_right = 1196.0
+margin_bottom = 459.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_styles/panel = SubResource( 2 )
+popup_exclusive = false
+_sections_unfolded = [ "custom_styles" ]
+
+[node name="texto_tablas" type="RichTextLabel" parent="Popup_tablas" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 15.0
+margin_top = 16.0
+margin_right = 452.0
+margin_bottom = 389.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = "En esta prueba puedes practicar las tablas de multiplicar. Debes responder correctamenet a las preguntas lo más rápido posible. Aunque la prueba sea cronometrada no posee un tiempo límite. ¡Intenta dar lo máximo para superarte a ti mism@!"
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 3
+text = "En esta prueba puedes practicar las tablas de multiplicar. Debes responder correctamenet a las preguntas lo más rápido posible. Aunque la prueba sea cronometrada no posee un tiempo límite. ¡Intenta dar lo máximo para superarte a ti mism@!"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "custom_colors", "custom_fonts" ]
+
+[node name="button_enter_sound" type="AudioStreamPlayer" parent="." index="6"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="button_down" from="atras" to="." method="_on_atras_button_down"]
+
+[connection signal="mouse_entered" from="atras" to="." method="_on_atras_mouse_entered"]
+
+[connection signal="mouse_entered" from="button_operaciones" to="." method="_on_button_operaciones_mouse_entered"]
+
+[connection signal="mouse_exited" from="button_operaciones" to="." method="_on_button_operaciones_mouse_exited"]
+
+[connection signal="button_down" from="button_tablas" to="." method="_on_button_tablas_button_down"]
+
+[connection signal="mouse_entered" from="button_tablas" to="." method="_on_button_tablas_mouse_entered"]
+
+[connection signal="mouse_exited" from="button_tablas" to="." method="_on_button_tablas_mouse_exited"]
+
+

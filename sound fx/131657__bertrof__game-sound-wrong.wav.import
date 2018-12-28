@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/131657__bertrof__game-sound-wrong.wav-dd8f352a9c0131806875598c56fffdce.sample"
+
+[deps]
+
+source_file="res://sound fx/131657__bertrof__game-sound-wrong.wav"
+dest_files=[ "res://.import/131657__bertrof__game-sound-wrong.wav-dd8f352a9c0131806875598c56fffdce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

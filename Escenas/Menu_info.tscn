@@ -1,0 +1,166 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Escenas/Menu_info.gd" type="Script" id=1]
+[ext_resource path="res://images/background/bg_2.png" type="Texture" id=2]
+[ext_resource path="res://images/logos/FAVICON.png" type="Texture" id=3]
+[ext_resource path="res://fonts/Comfortaa-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://fonts/Comfortaa-Light.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://fonts/Enagol-Math-Medium.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://sound fx/over_button.wav" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 5 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=3]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 6 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=4]
+
+size = 20
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 35
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 7 )
+_sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
+
+[node name="Menu_info" type="Node"]
+
+script = ExtResource( 1 )
+
+[node name="Fondo" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="Logo_Piensa3D" type="TextureRect" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 99.0
+margin_top = 137.0
+margin_right = 236.0
+margin_bottom = 267.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
+
+[node name="Texto" type="RichTextLabel" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 252.0
+margin_top = 141.0
+margin_right = 1165.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/italics_font = SubResource( 2 )
+custom_fonts/bold_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "Este juego ha sido desarrollado por Iván Rodríguez (Piensa 3D) en colaboración con el centro de inteligencias múltiples, Cerebritos. El desarrollo de este juego comenzó en noviembre de 2018 como un desarrollo independiente para la mejora de la inteligencia lógico-matemática. "
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Este juego ha sido desarrollado por Iván Rodríguez (Piensa 3D) en colaboración con el centro de inteligencias múltiples, Cerebritos. El desarrollo de este juego comenzó en noviembre de 2018 como un desarrollo independiente para la mejora de la inteligencia lógico-matemática. "
+scroll_active = true
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "BBCode", "Material", "Visibility", "custom_colors", "custom_fonts" ]
+
+[node name="atras" type="Button" parent="." index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 958.0
+margin_top = 631.0
+margin_right = 1265.0
+margin_bottom = 702.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 5 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Atrás"
+flat = false
+align = 1
+_sections_unfolded = [ "Rect", "custom_fonts" ]
+
+[node name="button_enter_sound" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[connection signal="button_down" from="atras" to="." method="_on_atras_button_down"]
+
+[connection signal="mouse_entered" from="atras" to="." method="_on_atras_mouse_entered"]
+
+
